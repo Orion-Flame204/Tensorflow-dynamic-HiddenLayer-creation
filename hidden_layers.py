@@ -26,7 +26,7 @@ def hl(classes, input_size, hl_nodes, data):
 
         l.append(tf.nn.relu(tf.add(tf.matmul(data, hidden_layer[n]['weights']), hidden_layer[n]['biases'])))
 
-    output = tf.matmul(l[n], output_layer['weights']), output_layer['biases']
+    output = tf.matmul(l[n], output_layer['weights']) + output_layer['biases']
 
     return hidden_layer, output_layer, l, output
 
