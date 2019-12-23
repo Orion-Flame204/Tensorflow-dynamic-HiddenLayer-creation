@@ -13,7 +13,7 @@ import tensorflow as tf
 def hl(classes, input_size, hl_nodes, data):
     hidden_layer = [{'weights': tf.Variable(tf.random_normal([input_size, hl_nodes[0]])),
                       'biases': tf.Variable(tf.random_normal([hl_nodes[0]]))}]
-    l = [tf.nn.relu(tf.add(tf.matmul(data, hidden_layer[0]['weights']) + hidden_layer[0]['biases']))]
+    l = [tf.nn.relu(tf.add(tf.matmul(data, hidden_layer[0]['weights']), hidden_layer[0]['biases']))]
 
     for i in range(len(hl_nodes)):
         hidden_layer.append({'weights': tf.Variable(tf.random_normal([hl_nodes[i-1], hl_nodes[i]])),
